@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { TodoList } from './TodoList';
+import {TodoList} from './TodoList';
 
 function App() {
     const tasks1 = [
@@ -8,15 +8,16 @@ function App() {
         {id: 2, title: "JS", isDone: true},
         {id: 3, title: "React", isDone: false},
     ]
-    const tasks2 = [
-        {id: 1, title: "Hello world", isDone: true},
-        {id: 2, title: "I am Happy", isDone: false},
-        {id: 3, title: "Yo", isDone: false},
-    ]
+
+    const removeTasks = (taskId:number)=>{
+        console.log(taskId)
+    }
     return (
         <div className="App">
-            <TodoList title = {"what is"} tasks={tasks1}/>
-            <TodoList title = {"this is"} tasks={tasks2}/>
+            <TodoList
+                title={"what is"}
+                tasks={tasks1}
+                removeTasks={removeTasks}/>
         </div>
     );
 }

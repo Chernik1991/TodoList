@@ -4,7 +4,7 @@ type TodoListType ={
     title : string;
     tasks : Array<ObjectofArray>
 }
-type ObjectofArray = {
+export type ObjectofArray = {
     id : number,
     title: string,
     isDone: boolean

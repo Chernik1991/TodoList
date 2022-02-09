@@ -1,17 +1,17 @@
 import React from "react";
 
-type PropsType = {
-    title: string;
-    tasks: Array<TaskType>
-    removeTasks:(taskId:number)=>void
+type TodoListType ={
+    title : string;
+    tasks : Array<ObjectofArray>
 }
-type TaskType = {
-    id: number,
+type ObjectofArray = {
+    id : number,
     title: string,
     isDone: boolean
 
 }
-export const TodoList = (props: PropsType) => {
+
+export const TodoList = (props: TodoListType) => {
     return (
         <div>
             <h3>{props.title}</h3>
@@ -20,19 +20,15 @@ export const TodoList = (props: PropsType) => {
                 <button>+</button>
             </div>
             <ul>
-                {props.tasks.map((m, index) => {
+                {props.tasks.map((m: ObjectofArray, index) => {
                     return (
-                        <li key={m.id}>
-                            <button onClick={(event)=>props.removeTasks(m.id)}>X</button>
-                            <input type="checkbox" checked={m.isDone}/>
-                            <span>{m.title}</span>
-                        </li>
-                    )
-                })}
+                            <li key={m.id}><input type="checkbox" checked={m.isDone}/> <span>{m.title}</span></li>
+                        )
+                    })}
 
-                {/*    <li><input type="checkbox" checked={props.tasks[0].isDone}/> <span>{props.tasks[0].title}</span></li>*/}
-                {/*    <li><input type="checkbox" checked={props.tasks[1].isDone}/> <span>{props.tasks[1].title}</span></li>*/}
-                {/*    <li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>*/}
+            {/*    <li><input type="checkbox" checked={props.tasks[0].isDone}/> <span>{props.tasks[0].title}</span></li>*/}
+            {/*    <li><input type="checkbox" checked={props.tasks[1].isDone}/> <span>{props.tasks[1].title}</span></li>*/}
+            {/*    <li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>*/}
             </ul>
             <div>
                 <button>All</button>
@@ -40,7 +36,5 @@ export const TodoList = (props: PropsType) => {
                 <button>Completed</button>
             </div>
         </div>
-
-    )
+    );
 }
-
